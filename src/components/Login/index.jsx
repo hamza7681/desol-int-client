@@ -46,9 +46,7 @@ const Login = () => {
         const res = await axios.post("http://localhost:5000/api/login", values);
         if (res) {
           setToken(res.data.token);
-          localStorage.setItem("token", res.data.token);
           setUser(res.data.user);
-          localStorage.setItem("user", JSON.stringify(res.data.user));
           toast.success(res.data.msg);
           router.push("/create");
         }
